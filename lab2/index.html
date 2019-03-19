@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CG3</title>
+    <link rel="shortcut icon" href="icon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+
+
+  <div class="tab">
+    <button class="tablinks" onclick="openTab(event, 'main')" id="defaultOpen">Main</button>   
+    <button class="tablinks" onclick="openTab(event, 'weatherResults')">Weather</button>
+    <button class="tablinks" onclick="openTab(event, 'stackResults')">Stack Overflow</button>
+  </div>
+
+  <br>
+
+  <div id="main" class="tabcontent">
+    <h3 align="center">Welcome!</h3>
+    <h2 align="center">If you would like to know the weather, click on the Weather tab. If you would like to ask a question on Stack Overflow, click the Stack Overflow tab. Enjoy! </h2>
+  </div>
+
+
+  <div id="weatherResults" class="tabcontent">
+    <h3>Weather</h3>
+    <form>
+      <label>Enter a U.S. city: </label>
+      <input id="weatherInput" type="text"></input><br/>
+      <input id="weatherSubmit" type="Submit" value="Submit"></input>
+    </form>
+  </div>
+
+  <div id="stackResults" class="tabcontent">
+    <h3>Stack Overflow</h3>
+    <form>
+      <label>Enter a question: </label>
+      <input id="stackInput" type="text"></input><br/>
+      <input id="stackSubmit" type="Submit" value="Submit"></input>
+    </form>
+  </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script text="type/javascript" src="script.js"></script>
+
+    <div class="footer">
+      <p class="left"><img src="cr.png"> 2018 The CG Company, LLC</p>
+      <p class="right"><img src="github.svg"><a href="https://github.com/BYU-CS260-Winter-2018/lab-2-cagu3">GitHub URL</a></p>
+    </div>
+
+
+
+  </body>
+</html>
