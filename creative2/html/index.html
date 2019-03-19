@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+    <title>Movie Ratings</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Movie Ratings</h1>
+      <p>
+        <button v-on:click="previousMovie">Previous</button>
+        <button v-on:click="nextMovie">Next</button>
+      </p>
+      <p>
+        <button v-on:click="randomMovie">Random</button>
+        <button v-on:click="firstMovie">First</button>
+        <button v-on:click="lastMovie">Last</button>
+      </p>
+      <div v-if="loading">
+        <p>Loading...</p>
+      </div>
+      <div v-else>
+        <h2>{{ current.title}}</h2>
+        <img v-bind:src="current.img" v-bind:alt="current.alt">
+        <p><i># {{id}}, released on {{current.release_date}} </i></p>
+        <p><i># Votes: {{current.vote_average}} </i></p>
+        <p><i># Popularity: {{current.popularity}} </i></p>
+        <h3>Add a Comment</h3>
+        <form v-on:submit.prevent="addComment">
+          <input v-model="addedName" placeholder="Name"></p>
+          <textarea v-model="addedComment"></textarea>
+          <br/>
+          <button type="submit">Comment</button>
+        </form>
+        <h3>Comments</h3>
+        <div v-for="comment in comments[number]">
+          <hr>
+          <p>{{comment.text}}</p>
+          <p><i>-- {{comment.author}}</i></p>
+          <star-rating :increment='0.5' inactive-color='white' active-color='red' :show-rating='false'></star-rating>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <p>Check Me Out On <a href="https://github.com/cagu3/creative3">GitHub</a></p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

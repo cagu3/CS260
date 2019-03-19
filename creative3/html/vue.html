@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"/>
+    <title>Movies To Add</title>
+  </head>
+  <body>
+
+  <div class="menu">
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+          <li>
+            <a href="#"> Reviews <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+            <ul class="hidden">
+              <li><a href="coco.html">Coco</a></li>
+              <li><a href="greatestshowman.html">The Greatest Showman</a></li>
+              <li><a href="dunkirk.html">Dunkirk</a></li>
+              <li><a href="starwars.html">Star Wars: The Last Jedi</a></li>
+              <li><a href="pitchperfect3.html">Pitch Perfect 3</a></li>
+              <li><a href="jumanji.html">Jumanji</a></li>
+              <li><a href="justiceleague.html">The Justice League</a></li>
+              <li><a href="mazerunner.html">The Maze Runner</a></li>
+          </ul>
+          </li>
+          <li><a href="search.html">Search</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a class="active" href="vue.html">Add Movies</a></li>
+      </ul>
+    </nav>
+  </div>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+    <div id="app">
+      <div class="container">
+        <div class="header">
+          <h1>Tell us what movies we should add!</h1>
+        </div>
+      </div>
+      <form v-on:submit.prevent="addItem">
+  <input type="text" v-model="message">
+  <button type="submit">Add</button>
+      </form>
+      <div class="controls">
+  <button v-on:click="showAll()">Show All</button>
+  <button v-on:click="showActive()">Show Active</button>
+  <button v-on:click="showCompleted()">Show Completed</button>
+  <button v-on:click="deleteCompleted()">Delete Completed</button>
+      </div>
+      <div class="list">
+      <ul>
+  <li class="list" v-for="item in filteredTodos" draggable="true" v-on:dragstart="dragItem(item)" v-on:dragover.prevent v-on:drop="dropItem(item)">
+    <input type="checkbox" v-model="item.completed" v-on:click="completeItem(item)" /><label v-bind:class="{ completed: item.completed }">{{ item.text }}</label><button v-on:click="deleteItem(item)" class="delete">X</button>
+  </li>
+      </ul>
+    </div>
+    </div>
+
+  <div class="container">
+    <div class="footer">
+      <h1><a href="https://github.com/cagu3/creative3">The CG Company, LLC</a></h1>
+    </div>
+  </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="vue.js"></script>
+  </body>
+</html>

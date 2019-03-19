@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css"/>
+    <title>Budget Helper</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Items needed to be budgeted:</h1>
+      <h4>1 = Food</h4>
+      <h4>2 = Mortgage/Utilities</h4>
+      <h4>3 = Gas</h4>
+      <h4>4 = Pleasure</h4>
+      <p v-show="unbudgetedItems.length === 0">All budgeted, good job!</p>
+      <form v-on:submit.prevent="addItem">
+	<input type="text" v-model="text">
+  <label for="type">Type:</label>
+  <input style="font-size:16px;" id="type" name="type" type="number" v-model="type" required min="1" max="4" step="1" value="2">
+	<button type="submit">Add</button>
+      </form>
+      <div class="controls">
+	<button v-on:click="showAll()">Show All</button>
+	<button v-on:click="showUnBudgeted()">Show Un-budgeted</button>
+	<button v-on:click="showBudgeted()">Show Budgeted</button>
+	<button v-on:click="deleteBudgeted()">Delete Budgeted</button>
+  <button v-on:click="sortExpenses()">Sort Expenses</button>
+      </div>
+      <ul>
+	<li v-for="item in filteredItems" draggable="true" v-on:dragstart="dragItem(item)" v-on:dragover.prevent v-on:drop="dropItem(item)">
+	  <input type="checkbox" v-model="item.budgeted" v-on:click="budgetItem(item)" />
+    <label v-bind:class="{ budgeted: item.budgeted }">{{ item.text }}</label>
+    <label> Type: {{ item.type }}</label>
+    <button v-on:click="deleteItem(item)" class="delete">X</button>
+	</li>
+      </ul>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js" integrity="sha256-mpnrJ5DpEZZkwkE1ZgkEQQJW/46CSEh/STrZKOB/qoM=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.js" integrity="sha256-pU9euBaEcVl8Gtg+FRYCtin2vKLN8sx5/4npZDmY2VA=" crossorigin="anonymous"></script>
+    <script src="/script.js"></script>
+
+    <p class="footer">Check me out on <a href="https://github.com/cagu3/cp4">GitHub</a></p>
+  </body>
+</html>

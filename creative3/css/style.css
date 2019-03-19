@@ -1,0 +1,312 @@
+.list li {
+    background-color: #FF5035;
+    width: 500px;
+    min-height: 30px;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 2em;
+    display: flex;
+    align-items: center;
+}
+
+button {
+    font-size: 2em;
+}
+
+.delete {
+    display: none;
+    margin-left: auto;
+}
+
+li:hover .delete {
+    display: block;
+}
+
+label {
+    width: 400px;
+}
+
+.completed {
+    text-decoration: line-through;
+}
+
+
+
+body {
+    background-color: white;
+}
+
+nav li {
+    float: left;
+}
+
+nav li a {
+    font-size: 2em;
+    display: block;
+    color: black;
+    background-color: lightgray;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    height: 40px;
+    width: 150;
+}
+
+
+ul {
+  list-style-type: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+nav li a:hover:not(.active) {
+    background-color: lightblue;
+}
+
+.active {
+    background-color: blue;
+}
+
+
+
+
+body {
+    font-size: 16px;
+    background-color: #0D4965;
+}
+
+.container {
+    display: grid;
+
+    /*  Define the size and number of columns in our grid. 
+    The fr unit works similar to flex:
+    fr columns will share the free space in the row in proportion to their value.
+    We will have 2 columns - the first will be 3x the size of the second.  */
+    grid-template-columns: 1fr 3fr;
+
+    /*  Assign the grid areas we did earlier to specific places on the grid. 
+        First row is all header.
+        Second row is shared between main and sidebar.
+        Last row is all footer.  */
+    grid-template-areas: 
+        "header header"
+        "sidebar main"
+        "footer footer";
+
+    /*  The gutters between each grid cell will be 60 pixels. */
+    grid-gap: 50px;
+}
+
+div {
+    text-align: center;
+    color: #fff;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.header {
+    grid-area: header;
+    background-color: #FF9D60;
+    height: auto;
+    font-size: 30px;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    background-color: grey;
+    font-size: 20px;
+    color: #333;
+}
+
+.main {
+    grid-area: main;
+    background-color: #0D4965;
+    color: white;
+}
+
+.footer {
+    grid-area: footer;
+    background-color: lightblue;
+    height: 100px;
+    font-size: 15px;
+}
+
+.footer h1 {
+    float: right;
+}
+
+.portfolio {
+    display: grid;
+    grid-template: auto auto / 1fr 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+}
+
+
+
+
+input[type=text], select, textarea {
+    width: 100%; /* Full width */
+    padding: 12px; /* Some padding */  
+    border: 1px solid #ccc; /* Gray border */
+    border-radius: 4px; /* Rounded borders */
+    box-sizing: border-box; /* Make sure that padding and width stays in place */
+    margin-top: 6px; /* Add a top margin */
+    margin-bottom: 16px; /* Bottom margin */
+    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+/* Style the submit button with a specific background color etc */
+input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* When moving the mouse over the submit button, add a darker green color */
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+/* Add a background color and some padding around the form */
+.containercontact {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    color: black;
+}
+
+.image {
+    width: 100%;
+}
+
+.reviewfont {
+    font-size: 50px;
+}
+
+.personfont {
+    font-size: 25px;
+}
+
+
+
+.image img {
+    width: 80%;
+}
+/*Strip the ul of padding and list styling*/
+.menu ul {
+    list-style-type:none;
+    margin:0;
+    padding:0;
+    position: absolute;
+}
+
+/*Create a horizontal list with spacing*/
+.menu li {
+    display:inline-block;
+    float: left;
+    margin-right: 1px;
+}
+/*Style for menu links*/
+.menu li a {
+    display:block;
+    min-width:140px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    color: #fff;
+    background: #2f3036;
+    text-decoration: none;
+}
+
+/*Active color*/
+.menu li a.active {
+    background: #FF5035;
+}
+/*Hover state for top level links*/
+.menu li:hover a {
+    background: #FF5035;
+}
+/*Style for dropdown links*/
+.menu li:hover ul a {
+    background: #f3f3f3;
+    color: #2f3036;
+    height: auto;
+    line-height: auto;
+}
+/*Hover state for dropdown links*/
+.menu li:hover ul a:hover {
+    background: #FF5035;
+    color: #fff;
+}
+/*Hide dropdown links until they are needed*/
+.menu li ul {
+    display: none;
+}
+/*Make dropdown links vertical*/
+.menu li ul li {
+    display: block;
+    float: none;
+}
+/*Prevent text wrapping*/
+.menu li ul li a {
+    width: auto;
+    min-width: 100px;
+    padding: 0 20px;
+}
+/*Display the dropdown on hover*/
+.menu ul li a:hover + .hidden, .hidden:hover {
+    display: block;
+}
+/*Style 'show menu' label button and hide it by default*/
+.menu .show-menu {
+    text-decoration: none;
+    color: #fff;
+    background: #FF5035;
+    text-align: center;
+    padding: 10px 0;
+    display: none;
+}
+/*Hide checkbox*/
+.menu input[type=checkbox]{
+    display: none;
+}
+/*Show menu when invisible checkbox is checked*/
+.menu input[type=checkbox]:checked ~ #menu{
+    display: block;
+}
+
+
+.movies {
+    text-align: center;
+    align-items: center;
+    align-content: center;
+}
+
+.movies img {
+    width: 25%;
+    height: auto;
+}
+
+.movies h3 {
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.movies h4 {
+    font-size: 40px;
+}
+
+.movies h5 {
+    font-size: 20px;
+}
+
+
+
+
+
+
+
+
