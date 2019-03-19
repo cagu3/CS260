@@ -1,6 +1,8 @@
-# moviereviews
+# Creative Project 5
 
-> Creative Project 5
+> Movie Review app
+
+Vue project for movie reviews.
 
 ## Build Setup
 
